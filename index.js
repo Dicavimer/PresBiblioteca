@@ -20,7 +20,7 @@ app.post('/formulario',(req,res)=>{
     console.log(req.body);
     const{nombre, apellido, id, titulo, autor, editorial, año}= req.body
     const info = `1.Nombre: ${nombre}, 2.Apellido: ${apellido}, 3.Id: ${id}, 4.Titulo: ${titulo}, 5.Autor: ${autor}, 6.Editorial: ${editorial} , 7.Año: ${año}`
-    if(!nombre || !apellido || !id || !titulo || !autor || !editorial || !año) return res.redirect('/error.html');
+    if(!nombre.trim() || !apellido.trim() || !id.trim() || !titulo.trim() || !autor.trim() || !editorial.trim() || !año.trim()) return res.redirect('/error.html');
 fs.appendFile('./data/id_123.txt', info + '\n' , function (error) {
     if (error) throw error;
     console.log('Saved!');
